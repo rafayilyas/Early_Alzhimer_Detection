@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload MRI Scan | NeuroDetect AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-inner container" style="width: min(1200px, 100%);">
+      <a class="brand" href="index.html"><span class="brand-mark" data-brain-icon></span><span>NeuroDetect AI</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="upload.html" class="active">Upload Scan</a>
+        <a href="results.html">Results</a>
+        <a href="index.html#about">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" data-theme-toggle type="button" aria-label="Toggle theme"></button>
+        <a class="btn btn-primary" href="risk-assessment.html">Get Started</a>
+        <button class="icon-btn hamburger" data-menu-toggle type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav container" data-mobile-nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="upload.html" class="active">Upload Scan</a>
+      <a href="results.html">Results</a>
+      <a href="index.html#about">About</a>
+      <a class="btn btn-primary" href="risk-assessment.html">Get Started</a>
+    </div>
+  </header>
+
+  <main class="page-shell section">
+    <div class="container two-col-layout">
+      <section class="card panel-card reveal">
+        <span class="badge">MRI Upload</span>
+        <h1 class="section-title" style="margin-top: 16px; font-size: clamp(2.3rem, 4vw, 3.4rem);">Upload MRI Scan</h1>
+        <p class="section-subtitle">Supported formats: JPG, PNG, DICOM</p>
+
+        <div class="upload-zone" data-upload-zone>
+          <input type="file" accept="image/*,.dcm" data-upload-input />
+          <div style="font-size: 3rem; color: var(--blue);">🧠</div>
+          <h3 style="margin: 12px 0 6px;">Drag & drop your MRI scan here</h3>
+          <p class="small-text">or click to browse</p>
+          <div class="preview-file hidden" data-upload-preview>
+            <img data-preview-image alt="MRI preview" />
+            <div>
+              <strong data-preview-name>scan.jpg</strong>
+              <div class="small-text" data-preview-size>0 MB</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 24px;"></div>
+        <h3>Patient Information</h3>
+        <div class="form-grid" style="margin-top: 16px;">
+          <div class="field"><label for="pname">Patient Name</label><input id="pname" type="text" placeholder="Enter patient name" required /></div>
+          <div class="field"><label for="age">Age</label><input id="age" type="number" placeholder="Age" required /></div>
+          <div class="field"><label for="gender">Gender</label><select id="gender" required><option>Male</option><option>Female</option><option>Other</option></select></div>
+          <div class="field"><label for="scanDate">Scan Date</label><input id="scanDate" type="date" required /></div>
+          <div class="field" style="grid-column: 1 / -1;"><label for="notes">Notes</label><textarea id="notes" placeholder="Additional clinical notes"></textarea></div>
+        </div>
+        <button class="btn btn-primary" data-analyze-button type="button" style="width: 100%; margin-top: 18px; padding: 16px 22px;">Analyze Scan</button>
+      </section>
+
+      <aside class="grid" style="display:grid; gap: 18px; align-content:start;">
+        <section class="card panel-card reveal">
+          <h3>MRI Preview</h3>
+          <div class="card" style="margin-top: 14px; overflow:hidden; border-radius: 18px; background: #08111f; min-height: 280px; display:grid; place-items:center; color:#fff; position:relative;">
+            <img data-upload-preview-image src="https://images.unsplash.com/photo-1559757175-08f5e6f8d4a4?auto=format&fit=crop&w=900&q=80" alt="MRI preview" style="width:100%; height:280px; object-fit:cover; opacity:0.32; filter: grayscale(1);" />
+            <div data-upload-placeholder style="position:absolute; display:grid; place-items:center; gap:10px; text-align:center; padding: 18px 20px; background: rgba(10,22,40,0.55); border-radius: 16px; backdrop-filter: blur(8px);">
+              <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="44" cy="44" r="39" fill="#eef6fc" opacity="0.95"/>
+                <circle cx="44" cy="44" r="28" stroke="#2e86c1" stroke-width="3" stroke-dasharray="5 6" opacity="0.55"/>
+                <path d="M30 39c0-7 6-13 14-13 4 0 8 2 10 5 2-3 6-5 10-5 8 0 14 6 14 13 0 4-2 8-5 10 2 3 3 6 3 10 0 7-6 13-13 13-3 0-6-1-8-3-3 2-6 3-9 3-7 0-13-6-13-13 0-4 1-7 3-10-3-2-5-6-5-10Z" stroke="#2e86c1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M24 66c8-5 17-7 20-7m20 0c4 0 13 2 20 7" stroke="#2e86c1" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+              </svg>
+              <div>No scan uploaded yet</div>
+            </div>
+          </div>
+        </section>
+        <section class="card panel-card reveal">
+          <h3>Scan Requirements</h3>
+          <ul class="small-text" style="list-style:none; padding:0; margin:14px 0 0; display:grid; gap:10px;">
+            <li>✓ Minimum resolution 224x224</li>
+            <li>✓ Grayscale preferred</li>
+            <li>✓ Clear brain visible</li>
+            <li>✓ No patient info overlay</li>
+          </ul>
+        </section>
+        <section class="card panel-card reveal">
+          <h3>Recent Scans</h3>
+          <div class="recent-scan">
+            <img class="thumb" src="https://images.unsplash.com/photo-1559757175-08f5e6f8d4a4?auto=format&fit=crop&w=300&q=70" alt="Recent scan" />
+            <div><strong>Sara Ahmed</strong><div class="small-text">Today</div></div>
+            <span class="badge-pill yellow">Mild</span>
+          </div>
+          <div class="recent-scan">
+            <img class="thumb" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=300&q=70" alt="Recent scan" />
+            <div><strong>Mohammad Ali</strong><div class="small-text">Yesterday</div></div>
+            <span class="badge-pill green">Normal</span>
+          </div>
+          <div class="recent-scan">
+            <img class="thumb" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=300&q=70" alt="Recent scan" />
+            <div><strong>Fatima Khan</strong><div class="small-text">2 days ago</div></div>
+            <span class="badge-pill orange">VeryMild</span>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <div class="analysis-overlay" data-scan-overlay>
+    <div class="card scan-modal">
+      <div class="scan-visual">
+        <div class="scan-line"></div>
+        <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="120" cy="120" r="88" fill="#eef6fc" stroke="#2e86c1" stroke-width="6"/>
+          <circle cx="120" cy="120" r="68" stroke="#9fc8e6" stroke-width="2" stroke-dasharray="5 10" opacity="0.7"/>
+          <path d="M86 104c0-18 14-32 31-32 10 0 19 4 24 11 5-7 14-11 24-11 17 0 31 14 31 32 0 10-4 19-10 25 5 6 8 14 8 22 0 17-14 31-31 31-7 0-14-2-20-6-6 4-13 6-20 6-17 0-31-14-31-31 0-8 3-16 8-22-6-6-10-15-10-24Z" stroke="#2e86c1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M108 90c-9 6-14 15-14 26m78-16c-4 6-6 12-6 19M101 141c7 6 15 9 26 9m26-9c7 6 15 9 26 9M121 86c-4 5-6 10-6 16m30-16c-4 5-6 10-6 16" stroke="#0a1628" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+        </svg>
+      </div>
+      <div class="progress-track"><div class="progress-fill" data-progress-fill></div></div>
+      <div class="small-text" data-progress-text style="color:#fff;">Loading model...</div>
+      <div class="scan-steps" style="margin-top: 14px;">
+        <div class="scan-step" data-scan-step><span class="tick">1</span> Loading model...</div>
+        <div class="scan-step" data-scan-step><span class="tick">2</span> Preprocessing image...</div>
+        <div class="scan-step" data-scan-step><span class="tick">3</span> Running analysis...</div>
+        <div class="scan-step" data-scan-step><span class="tick">4</span> Generating report...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

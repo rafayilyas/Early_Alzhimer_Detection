@@ -1,0 +1,10 @@
+{
+  "best_path": "notebooks/models/saved/cnn_best_retrained.pth",
+  "best_acc": 0.2875,
+  "classes": [
+    "MildDemented",
+    "ModerateDemented",
+    "NonDemented",
+    "VeryMildDemented"
+  ]
+}

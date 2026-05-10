@@ -1,0 +1,18 @@
+# Dataset
+data/
+
+# Trained models
+*.pth
+
+# Cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Notebook cache
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results Dashboard | NeuroDetect AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-inner container" style="width: min(1200px, 100%);">
+      <a class="brand" href="index.html"><span class="brand-mark" data-brain-icon></span><span>NeuroDetect AI</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="upload.html">Upload Scan</a>
+        <a href="results.html" class="active">Results</a>
+        <a href="index.html#about">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" data-theme-toggle type="button" aria-label="Toggle theme"></button>
+        <a class="btn btn-primary" href="upload.html">New Scan</a>
+        <button class="icon-btn hamburger" data-menu-toggle type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav container" data-mobile-nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="upload.html">Upload Scan</a>
+      <a href="results.html" class="active">Results</a>
+      <a href="index.html#about">About</a>
+      <a class="btn btn-primary" href="upload.html">New Scan</a>
+    </div>
+  </header>
+
+  <main class="page-shell section">
+    <div class="container">
+      <section class="card patient-header reveal">
+        <div class="avatar-circle">SA</div>
+        <div class="patient-meta">
+          <h2 data-result-patient-name>Sara Ahmed</h2>
+          <div class="inline-meta"><span data-result-patient-age>Age 72</span><span data-result-patient-gender>Female</span><span data-result-scan-date>Scan Date: May 9, 2026</span><span class="status-green">Analysis Complete</span></div>
+        </div>
+        <div class="form-actions" style="margin-top:0; justify-content:flex-end;">
+          <button class="btn btn-outline" type="button" onclick="window.print()">Download PDF</button>
+          <button class="btn btn-ghost" type="button">Share with Doctor</button>
+          <a class="btn btn-primary" href="upload.html">New Scan</a>
+        </div>
+      </section>
+
+      <div class="section-tight results-grid">
+        <section class="card kpi-card reveal">
+          <span class="badge">Diagnosis Result</span>
+          <div class="diagnosis-big" data-result-diagnosis>Mild Demented</div>
+          <div class="confidence" data-result-confidence>87.3%</div>
+          <div class="risk-pill risk-orange" data-result-risk-pill>Mild Risk</div>
+          <div class="donut"><div class="donut-center"><strong data-result-confidence-short>87%</strong><div class="small-text">Confidence</div></div></div>
+          <p class="small-text" data-result-recommendation style="text-align:center; max-width: 440px; margin: 0 auto;">Consult a neurologist within 2 weeks. Early intervention recommended.</p>
+        </section>
+
+        <section class="card kpi-card reveal">
+          <h3>Stage Probabilities</h3>
+          <div class="progress-bars" style="margin-top: 18px;">
+            <div class="progress-group"><div class="progress-label"><span>NonDemented</span><span data-stage-percent="NonDemented">5%</span></div><div class="progress-track-dark"><div class="progress-fill-dark" data-value="5" data-stage="NonDemented" style="background:#21a366;"></div></div></div>
+            <div class="progress-group"><div class="progress-label"><span>VeryMildDemented</span><span data-stage-percent="VeryMild">8%</span></div><div class="progress-track-dark"><div class="progress-fill-dark" data-value="8" data-stage="VeryMild" style="background:#e3a008;"></div></div></div>
+            <div class="progress-group"><div class="progress-label"><span>MildDemented</span><span data-stage-percent="Mild">87%</span></div><div class="progress-track-dark"><div class="progress-fill-dark" data-value="87" data-stage="Mild" style="background:#e05252;"></div></div></div>
+            <div class="progress-group"><div class="progress-label"><span>ModerateDemented</span><span data-stage-percent="Moderate">0%</span></div><div class="progress-track-dark"><div class="progress-fill-dark" data-value="0" data-stage="Moderate" style="background:#d94d4d;"></div></div></div>
+          </div>
+        </section>
+
+        <section class="card kpi-card reveal">
+          <div class="mri-view">
+            <h3>MRI Analysis</h3>
+            <div class="mri-comparison">
+              <div class="mri-frame"><img data-result-original src="https://images.unsplash.com/photo-1559757175-08f5e6f8d4a4?auto=format&fit=crop&w=800&q=80" alt="Original MRI" /></div>
+              <div class="mri-frame"><img data-result-heatmap src="https://images.unsplash.com/photo-1559757175-08f5e6f8d4a4?auto=format&fit=crop&w=800&q=80&sat=-100" alt="Heatmap MRI" style="filter: hue-rotate(320deg) saturate(1.3) contrast(1.1);" /></div>
+            </div>
+            <div class="legend"><span><i class="swatch" style="background:#e05252"></i>High attention</span><span><i class="swatch" style="background:#2e86c1"></i>Low attention</span></div>
+            <button class="btn btn-outline" type="button">Grad-CAM Heatmap</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="section-tight row-grid-bottom">
+        <section class="card kpi-card reveal">
+          <h3>Clinical Indicators</h3>
+          <div class="table-grid" style="margin-top: 18px;">
+            <div class="table-row table-header" style="grid-template-columns: 1fr 0.6fr 0.5fr;"><div>Metric</div><div>Value</div><div>Status</div></div>
+            <div class="table-row" style="grid-template-columns: 1fr 0.6fr 0.5fr;"><div>MMSE Score</div><div>21/30</div><div>⚠</div></div>
+            <div class="table-row" style="grid-template-columns: 1fr 0.6fr 0.5fr;"><div>CDR Rating</div><div>1.0</div><div>⚠</div></div>
+            <div class="table-row" style="grid-template-columns: 1fr 0.6fr 0.5fr;"><div>Hippocampus Volume</div><div>Reduced 18%</div><div>✗</div></div>
+            <div class="table-row" style="grid-template-columns: 1fr 0.6fr 0.5fr;"><div>Cortical Thickness</div><div>Below average</div><div>⚠</div></div>
+            <div class="table-row" style="grid-template-columns: 1fr 0.6fr 0.5fr;"><div>Ventricular Size</div><div>Enlarged</div><div>⚠</div></div>
+          </div>
+        </section>
+
+        <section class="card kpi-card reveal">
+          <h3>Recommendations</h3>
+          <div class="timeline" style="margin-top: 18px;">
+            <div class="timeline-item"><div class="timeline-dot"></div><div><strong>Immediate</strong><p class="small-text">Review findings with family and care team.</p></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div><strong>1 Week</strong><p class="small-text">Schedule a neurologist consultation and follow-up.</p></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div><strong>1 Month</strong><p class="small-text">Monitor symptoms and complete cognition screening.</p></div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div><strong>3 Months</strong><p class="small-text">Reassess with repeat imaging if symptoms progress.</p></div></div>
+          </div>
+          <div class="card alert-card" style="margin-top: 18px; background: rgba(46,134,193,0.06);">
+            <strong>Doctor Referral</strong>
+            <p class="small-text" style="margin-top:8px;">Book a specialist appointment to discuss diagnostic next steps.</p>
+            <button class="btn btn-primary" type="button" style="margin-top:12px;">Book Appointment</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <style media="print">
+    @page { size: auto; margin: 12mm; }
+    body { background: #fff !important; color: #000 !important; }
+    .navbar, .btn, .status-green, .badge, .mri-comparison + .legend, .donut, .risk-pill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .navbar, .btn, .btn-primary, .btn-outline, .btn-ghost, .hamburger, .mobile-nav { display: none !important; }
+    .page-shell { padding-top: 0; }
+    .card { box-shadow: none !important; break-inside: avoid; }
+    .results-grid, .row-grid-bottom { grid-template-columns: 1fr; }
+  </style>
+
+  <script src="script.js"></script>
+</body>
+</html>

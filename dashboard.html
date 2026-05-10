@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinician Dashboard | NeuroDetect AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark" data-brain-icon></span><span>NeuroDetect AI</span></a>
+      <div class="profile-box">
+        <div class="avatar-sm">AK</div>
+        <div style="margin-top: 12px;"><strong>Dr. Ahmed Khan</strong><div class="small-text" style="color: rgba(255,255,255,0.7);">Neurologist</div></div>
+      </div>
+      <nav class="sidebar-nav" aria-label="Dashboard navigation">
+        <a class="active" href="dashboard.html">🏠 Dashboard</a>
+        <a href="#">👥 All Patients</a>
+        <a href="upload.html">⬆ New Scan</a>
+        <a href="results.html">📄 Reports</a>
+        <a href="#">📈 Analytics</a>
+        <a href="#">⚙ Settings</a>
+      </nav>
+      <button class="btn btn-outline" data-theme-toggle type="button" style="justify-content:flex-start; background: rgba(255,255,255,0.04); color:#fff; border-color: rgba(255,255,255,0.14);">Toggle Theme</button>
+      <button class="btn btn-primary" type="button">Logout</button>
+    </aside>
+
+    <main class="main-content">
+      <div class="dashboard-top reveal">
+        <div class="card metric-white card-hover"><span class="badge">Total Patients</span><strong>284</strong><p class="small-text">+12 this week</p></div>
+        <div class="card metric-white card-hover"><span class="badge">Scans Today</span><strong>18</strong><p class="small-text">Current intake</p></div>
+        <div class="card metric-white card-hover"><span class="badge" style="background: rgba(224,82,82,0.12); color: #c0392b;">High Risk Cases</span><strong style="color:#c0392b;">7</strong><p class="small-text">Needs attention</p></div>
+        <div class="card metric-white card-hover"><span class="badge">Average Accuracy</span><strong>96.8%</strong><p class="small-text">Model performance</p></div>
+      </div>
+
+      <div class="row-grid">
+        <section class="card kpi-card table-shell reveal">
+          <div style="display:flex; justify-content:space-between; gap: 12px; flex-wrap:wrap; align-items:center;">
+            <div>
+              <h3>Recent Patients</h3>
+              <p class="small-text">Track the latest scan activity and diagnoses.</p>
+            </div>
+            <input class="search-bar" data-patient-search placeholder="Search patients..." style="max-width: 280px;" />
+          </div>
+          <div class="search-filter-bar">
+            <div class="filter-group">
+              <button class="filter-btn active" data-filter-risk="all" type="button">All</button>
+              <button class="filter-btn" data-filter-risk="high" type="button">High Risk</button>
+              <button class="filter-btn" data-filter-risk="medium" type="button">Medium</button>
+              <button class="filter-btn" data-filter-risk="low" type="button">Low</button>
+            </div>
+          </div>
+          <div class="table-grid">
+            <div class="table-row table-header"><div>Patient</div><div>Age</div><div>Scan Date</div><div>Diagnosis</div><div>Risk</div><div>Action</div></div>
+            <div class="table-row" data-patient-row data-risk="high"><div>Sara Ahmed</div><div>72</div><div>Today</div><div>Mild Demented</div><div><span class="badge-pill red">High</span></div><div><button class="btn btn-outline" type="button">View</button></div></div>
+            <div class="table-row" data-patient-row data-risk="low"><div>Mohammad Ali</div><div>68</div><div>Yesterday</div><div>NonDemented</div><div><span class="badge-pill green">Low</span></div><div><button class="btn btn-outline" type="button">View</button></div></div>
+            <div class="table-row" data-patient-row data-risk="medium"><div>Fatima Khan</div><div>75</div><div>2 days ago</div><div>VeryMild</div><div><span class="badge-pill yellow">Medium</span></div><div><button class="btn btn-outline" type="button">View</button></div></div>
+            <div class="table-row" data-patient-row data-risk="high"><div>Omar Hassan</div><div>70</div><div>Today</div><div>Moderate</div><div><span class="badge-pill red">High</span></div><div><button class="btn btn-outline" type="button">View</button></div></div>
+            <div class="table-row" data-patient-row data-risk="low"><div>Aisha Noor</div><div>66</div><div>3 days ago</div><div>NonDemented</div><div><span class="badge-pill green">Low</span></div><div><button class="btn btn-outline" type="button">View</button></div></div>
+            <div class="table-row" data-patient-row data-risk="medium"><div>Hassan Raza</div><div>74</div><div>Today</div><div>Mild</div><div><span class="badge-pill yellow">Medium</span></div><div><button class="btn btn-outline" type="button">View</button></div></div>
+          </div>
+          <div class="pagination">
+            <span>Page 1 of 12</span>
+            <div style="display:flex; gap: 8px;">
+              <button class="btn btn-outline" type="button" data-page>1</button>
+              <button class="btn btn-outline" type="button" data-page>2</button>
+              <button class="btn btn-outline" type="button" data-page>3</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card kpi-card reveal">
+          <h3>Patient Distribution by Stage</h3>
+          <div class="canvas-wrap" style="height: 300px; margin-top: 12px; display:grid; place-items:center;">
+            <canvas data-donut-canvas style="max-width: 100%; max-height: 300px; width: 100%; height: 100%;"></canvas>
+          </div>
+          <div style="text-align:center; margin-top:-150px; position:relative; z-index:2; pointer-events:none;">
+            <strong style="font-size: 1.5rem;">284 patients</strong>
+          </div>
+          <div class="legend-list">
+            <div class="legend-item"><span>NonDemented</span><strong>45%</strong></div>
+            <div class="legend-item"><span>VeryMild</span><strong>30%</strong></div>
+            <div class="legend-item"><span>Mild</span><strong>18%</strong></div>
+            <div class="legend-item"><span>Moderate</span><strong>7%</strong></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="row-grid-bottom">
+        <section class="card kpi-card reveal">
+          <h3>Weekly Scans Bar Chart</h3>
+          <div class="canvas-wrap" style="margin-top: 16px;">
+            <canvas data-bar-canvas></canvas>
+            <div class="tooltip" data-tooltip></div>
+          </div>
+        </section>
+
+        <section class="card kpi-card reveal">
+          <h3>High Risk Alerts</h3>
+          <div class="alert-item"><div class="avatar-circle" style="width:54px; height:54px; font-size: 0.9rem;">SA</div><div><strong>Sara Ahmed</strong><div class="small-text">72 • Mild Demented</div></div><button class="btn btn-primary" type="button">Schedule Appointment</button></div>
+          <div class="alert-item"><div class="avatar-circle" style="width:54px; height:54px; font-size: 0.9rem;">OH</div><div><strong>Omar Hassan</strong><div class="small-text">70 • Moderate</div></div><button class="btn btn-primary" type="button">Schedule Appointment</button></div>
+          <div class="alert-item"><div class="avatar-circle" style="width:54px; height:54px; font-size: 0.9rem;">HK</div><div><strong>Hassan Raza</strong><div class="small-text">74 • Mild</div></div><button class="btn btn-primary" type="button">Schedule Appointment</button></div>
+          <div class="alert-item"><div class="avatar-circle" style="width:54px; height:54px; font-size: 0.9rem;">FN</div><div><strong>Fatima Khan</strong><div class="small-text">75 • VeryMild</div></div><button class="btn btn-primary" type="button">Schedule Appointment</button></div>
+          <div style="margin-top: 10px;"><a href="#" class="btn btn-outline">View All Alerts</a></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
